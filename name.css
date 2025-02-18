@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Great+Vibes&display=swap&family=Cinzel&family=Tangerine:wght@700&family=MedievalSharp&family=UnifrakturMaguntia&family=Charm:wght@700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #000000, #1a1a2e);
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle var(--duration) ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.3); }
+      50% { opacity: 1; transform: scale(1); }
+    }
+
+    .container {
+      text-align: center;
+      padding: 3.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                  0 0 0 1px rgba(255, 255, 255, 0.1);
+      min-width: 450px;
+      position: relative;
+      z-index: 1;
+      animation: containerFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes containerFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    input {
+      padding: 18px 25px;
+      font-size: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.07);
+      width: 320px;
+      outline: none;
+      transition: all 0.4s ease;
+      color: white;
+      font-family: 'Great Vibes', cursive;
+      font-size: 22px;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      font-family: 'Arial', sans-serif;
+      font-size: 16px;
+    }
+
+    input:focus {
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2),
+                  inset 0 0 10px rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.02);
+    }
+    .style-select {
+      padding: 18px 25px;
+      font-size: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.07);
+      width: 200px;
+      outline: none;
+      transition: all 0.4s ease;
+      color: white;
+      cursor: pointer;
+    }
+
+    .style-select option {
+      background: #1a1a2e;
+      color: white;
+    }
+
+    /* Font preview styles */
+    .medieval { font-family: 'MedievalSharp', cursive; }
+    .royal { font-family: 'Cinzel', serif; }
+    .enchanted { font-family: 'Tangerine', cursive; }
+    .gothic { font-family: 'UnifrakturMaguntia', cursive; }
+    .elegant { font-family: 'Great Vibes', cursive; }
+    .whimsical { font-family: 'Pacifico', cursive; }
+    .mystical { font-family: 'Dancing Script', cursive; }
+    .charming { font-family: 'Charm', cursive; }
+
+    button {
+      padding: 18px 35px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #ff3366, #ff6b6b);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: rotate(45deg);
+      transition: 0.5s;
+    }
+
+    button:hover::before {
+      animation: shine 1s;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 51, 102, 0.3);
+      background: linear-gradient(45deg, #ff1f4f, #ff5252);
+    }
+
+    button:active {
+      transform: translateY(-1px);
+    }
+
+    .output {
+      font-size: 65px;
+      min-height: 130px;
+      color: #fff;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      perspective: 1000px;
+      font-family: 'Great Vibes', cursive;
+      position: relative;
+    }
+
+    .output::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    }
+
+    .output span {
+      display: inline-block;
+      opacity: 0;
+      margin: 0 5px;
+      transform-style: preserve-3d;
+      transform: translateZ(-100px) rotateY(90deg);
+      position: relative;
+    }
+
+    .output span.char-appear {
+      animation: charAppear 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+                 starGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes starGlow {
+      0% {
+        text-shadow: 
+          0 0 5px #fff,
+          0 0 10px #fff,
+          0 0 15px #fff,
+          0 0 20px #0b59eb,
+          0 0 35px #b90d77,
+          0 0 40px #ce0808;
+      }
+      100% {
+        text-shadow: 
+          0 0 10px #fff,
+          0 0 20px #fff,
+          0 0 30px #fff,
+          0 0 40px #ffd700,
+          0 0 70px #ffd700,
+          0 0 80px #ffd700;
+      }
+    }
+
+    h1 {
+      color: #fff;
+      margin-bottom: 35px;
+      font-size: 32px;
+      font-family: 'Pacifico', cursive;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+      position: relative;
+      display: inline-block;
+    }
+
+    h1::before, h1::after {
+      content: '❈';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.6);
+      animation: rotate 3s linear infinite;
+    }
+
+    h1::before { left: -40px; }
+    h1::after { right: -40px; }
+
+    @keyframes rotate {
+      100% { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff3366, 0 0 20px #ff3366;
+      }
+      to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff3366, 0 0 40px #ff3366;
+      }
+    }
+
+    @keyframes charAppear {
+      0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.3) rotate(-30deg);
+        filter: blur(10px);
+      }
+      30% {
+        opacity: 0.5;
+        transform: translateY(-20px) scale(1.2) rotate(15deg);
+        filter: blur(5px);
+      }
+      60% {
+        opacity: 0.8;
+        transform: translateY(10px) scale(0.9) rotate(-5deg);
+        filter: blur(0px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+        filter: blur(0px);
+      }
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      animation: sparkle 1.5s linear infinite;
+      box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    }
+
+    @keyframes sparkle {
+      0% {
+        transform: scale(0) rotate(0deg) translateX(0);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1) rotate(180deg) translateX(30px);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0) rotate(360deg) translateX(60px);
+        opacity: 0;
+      }
+    }
+
+    .magic-dust {
+      position: absolute;
+      pointer-events: none;
+      animation: magicDust 2s linear infinite;
+    }
+
+    @keyframes magicDust {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
